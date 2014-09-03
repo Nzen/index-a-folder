@@ -19,6 +19,12 @@
 
 import os
 
+def just_curr_folder_name( here ) :
+	segment = here.split( '\\' )
+	if len( segment[0] ) == len( here ) :
+		segment = here.split( '/' ) # a small concession to _nix file slash
+	return segment[ -1 ] # last one is this folder
+
 def fill_with_subfolders( output, here ) :
 	output.write( "\t<p>basic I/O, world</p>" )
 
@@ -37,8 +43,10 @@ def main() :
 	here = os.getcwd()
 	output = open( "index.htm", 'w' )
 	output.write( begin_htm )
-	output.write( here ) # current folder is the title ; later get just the end
+	curr = just_curr_folder_name( here )
+	output.write( curr ) # current folder is the title ; later get just the end
 	output.write( mid_htm )
+	output.write( "<h1>" + curr + "</h1>" )
 	fill_with_subfolders( output, here )
 	output.write( end_htm )
 	output.close()
