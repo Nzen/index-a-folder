@@ -1,0 +1,17 @@
+body
+{	background-color:#0A0A29;
+	color:Silver; }
+h1
+{	text-align:center; }
+a:link
+	{ color:Crimson; }
+a:visited
+	{ color:Brown; }
+::selection
+	{ color:DarkViolet; }
+.content
+{	width:80%;
+	float:left; }
+.twenty_p
+{	width:20%;
+	float:left; }
